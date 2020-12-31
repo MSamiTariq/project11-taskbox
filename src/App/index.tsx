@@ -15,6 +15,7 @@ import {
 	SelectToDoActionCreator,
 	DeleteToDoActionCreator,
 } from "../redux-toolkit";
+import Counter from "../components/Counter";
 
 const App = function() {
 	const dispatch = useDispatch();
@@ -103,9 +104,13 @@ const App = function() {
 
 	return (
 		<div className="App">
-			<div className="App__counter">Todos Updated Count: {editedCount}</div>
+			<Counter
+				text="Todos Updated Count:"
+				count={editedCount}
+				declass="App__counter"
+			/>
 			<div className="App__header">
-				<h1>Taskbox: Redux vs RTK Edition</h1>
+				<h1>Taskbox</h1>
 				<form onSubmit={handleCreateNewTodo}>
 					<label htmlFor="new-todo">Add new:</label>
 					<input
@@ -113,7 +118,9 @@ const App = function() {
 						id="new-todo"
 						value={newTodoInput}
 					/>
-					<button type="submit">Create</button>
+					<button type="submit" className="createButton">
+						Create
+					</button>
 				</form>
 			</div>
 			<div className="App__body">
